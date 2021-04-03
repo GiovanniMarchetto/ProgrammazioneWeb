@@ -21,4 +21,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# rest client part
 /REST client essenziale/RESTClient/target/
+
+# back-end part
+/Back-end/ProgettoMarchetto/target/
+
+# front-end part
+/Front-end/prog_marchetto_vue/.DS_Store
+/Front-end/prog_marchetto_vue/node_modules
+/Front-end/prog_marchetto_vue/dist
