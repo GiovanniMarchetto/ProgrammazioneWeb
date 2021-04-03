@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <groupId>it.units</groupId>
+    <artifactId>ProgettoMarchetto</artifactId>
+
+    <properties>
+        <!-- uncomment if you wish to set your project here project- gcloud is used otherwise -->
+        <!-- <app.deploy.project>your-app-id</app.deploy.project> -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+        <archiveClasses>true</archiveClasses>
+    </properties>
+
+    <prerequisites>
+        <maven>3.5</maven>
+    </prerequisites>
+
+    <dependencies>
+        <!-- Compile/runtime dependencies (archetipo)-->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>1.9.79</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- Fine Compile/runtime dependencies (archetipo)-->
+
+        <!-- JWT -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <!-- Fine JWT -->
+
+        <!-- Appengine gcs client -->
+        <dependency>
+            <groupId>com.google.appengine.tools</groupId>
+            <artifactId>appengine-gcs-client</artifactId>
+            <version>0.8.1</version>
+        </dependency>
+        <!-- Fine Appengine gcs client -->
+
+        <!-- Test Dependencies (archetipo)-->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>1.9.59</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>1.9.59</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-tools-sdk</artifactId>
+            <version>1.9.79</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.truth</groupId>
+            <artifactId>truth</artifactId>
+            <version>0.33</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Fine Test Dependencies (archetipo)-->
+
+        <!-- Jersey! -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <!--<artifactId>jersey-container-servlet-core</artifactId>-->
+            <!-- use the following artifactId if you don't need servlet 2.x compatibility -->
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>2.28</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-mvc</artifactId>
+            <version>2.28</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-mvc-jsp</artifactId>
+            <version>2.28</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+            <version>2.28</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>2.28</version>
+        </dependency>
+        <!-- Fine Jersey! -->
+
+        <!-- SWAGGER -->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.10.2</version>
+        </dependency>
+        <!-- Fine SWAGGER -->
+
+        <!-- Objectify -->
+        <dependency>
+            <groupId>com.googlecode.objectify</groupId>
+            <artifactId>objectify</artifactId>
+            <version>5.1.22</version>
+        </dependency>
+        <!-- Fine Objectify -->
+    </dependencies>
+
+
+    <build>
+        <!-- for hot reload of the web application-->
+        <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+
+        <plugins>
+            <!-- Plugin archetipo -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>2.2.0</version>
+                <!--AGGIUNTA CONFIGURAZIONE-->
+                <configuration>
+                    <projectId>progettomarchetto</projectId>
+                    <version>1</version>
+                    <jvmFlags>
+                        <jvmFlag>-Xdebug</jvmFlag>
+                        <jvmFlag>-Xrunjdwp:transport=dt_socket,server=y, suspend=y,address=5005</jvmFlag>
+                    </jvmFlags>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>display-dependency-updates</goal>
+                            <goal>display-plugin-updates</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>javax.servlet:javax.servlet-api</exclude>
+                        <exclude>com.google.guava:guava</exclude> <!-- avoid android version -->
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!--   Rimossa perché ripetuta   -->
+            <!--      <plugin>-->
+            <!--        <artifactId>maven-war-plugin</artifactId>-->
+            <!--        <version>3.1.0</version>-->
+            <!--      </plugin>-->
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.6</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>1.4.1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.5</version>
+                                </requireMavenVersion>
+                                <requirePluginVersions>
+                                    <message>Best Practice is to always define plugin versions!</message>
+                                    <banLatest>true</banLatest>
+                                    <banRelease>true</banRelease>
+                                    <phases>
+                                        clean,deploy,verify,appengine:run,appengine:deploy,appengine:update,appengine:devappaserver,site
+                                    </phases>
+                                </requirePluginVersions>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Fine Plugin archetipo -->
+
+            <!-- swagger plugins -->
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.webjars</groupId>
+                                    <artifactId>swagger-ui</artifactId>
+                                    <version>3.25.0</version>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.build.directory}/swagger-ui</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <webResources combine.children="append">
+                        <resource>
+                            <directory>
+                                ${project.build.directory}/swagger-ui/META-INF/resources/webjars/swagger-ui/3.25.0
+                            </directory>
+                            <includes>
+                                <include>**/*.*</include>
+                            </includes>
+                            <targetPath>swagger-ui</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <file>
+                        ${project.build.directory}/swagger-ui/META-INF/resources/webjars/swagger-ui/3.25.0/index.html
+                    </file>
+                    <replacements>
+                        <replacement>
+                            <token>https://petstore.swagger.io/v2/swagger.json</token>
+                            <value>/api/openapi.json</value>
+                        </replacement>
+                    </replacements>
+                </configuration>
+            </plugin>
+            <!--fine swagger plugin-->
+
+        </plugins>
+    </build>
+</project>
