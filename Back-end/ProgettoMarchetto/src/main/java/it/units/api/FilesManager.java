@@ -92,6 +92,9 @@ public class FilesManager {
             FilesHelper.saveNow(fileDaScaricare);
         }
 
+        // Response ispirazione: https://www.java2novice.com/restful-web-services/jax-rs-download-file/
+        // da questa ispirazione si è estesa la Response a tutti i web services sfruttando le specifiche e i suggerimenti di IntelliJ
+        // Ispirazione utilizzo octet stream: https://stackoverflow.com/questions/27375192/how-can-i-put-a-downloadable-file-into-the-httpservletresponse
         Response.ResponseBuilder responseBuilder = Response.ok(fileDaScaricare.getFile(), MediaType.APPLICATION_OCTET_STREAM_TYPE);
         responseBuilder.header("Content-Disposition",
                 "attachment; filename=\"" + fileDaScaricare.getName() + "\"");
