@@ -22,6 +22,7 @@
             id="usernameCons"
             type="text"
             name="usernameCons"
+            maxlength="100"
             v-model="usernameCons"
             placeholder="username consumer"/></b-form-group
       ></b-container>

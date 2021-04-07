@@ -37,6 +37,7 @@
           id="hashtag"
           name="hashtag"
           type="text"
+          maxlength="100"
           v-model="hashtag"
           placeholder="hashtag"
         />

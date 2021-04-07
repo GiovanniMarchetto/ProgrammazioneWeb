@@ -5,6 +5,7 @@
         :id="usernameInputId"
         type="text"
         name="usernameInput"
+        maxlength="100"
         v-model="usernameInput"
         placeholder="username"
         required

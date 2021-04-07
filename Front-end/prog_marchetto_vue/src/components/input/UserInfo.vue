@@ -5,6 +5,7 @@
         :id="nameInputId"
         type="text"
         name="nameInput"
+        maxlength="100"
         v-model="nameInput"
         placeholder="name"
         required
@@ -16,6 +17,7 @@
         :id="emailInputId"
         type="email"
         name="emailInput"
+        maxlength="100"
         v-model="emailInput"
         placeholder="email"
         required

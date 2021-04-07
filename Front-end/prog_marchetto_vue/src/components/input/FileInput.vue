@@ -21,6 +21,7 @@
         id="nameFileInput"
         type="text"
         name="nameFileInput"
+        maxlength="100"
         v-model="nameFileInput"
         placeholder="name of file"
         required
@@ -39,6 +40,7 @@
         id="hashtagInput"
         type="text"
         name="hashtagInput"
+        maxlength="100"
         v-model="hashtagInput"
         placeholder="some hashtag"
       />

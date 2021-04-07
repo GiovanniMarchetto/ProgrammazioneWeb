@@ -3,7 +3,7 @@
     <header>
       <h3>Eliminazione</h3>
     </header>
-    
+
     <b-container fluid>
       <h4>Elimina attore</h4>
       <b-form @submit.prevent="deleteActor">
@@ -13,6 +13,7 @@
           id="username"
           type="text"
           name="username"
+          maxlength="100"
           v-model="username"
           placeholder="username"
           required
@@ -40,10 +41,11 @@
           id="fileId"
           type="text"
           name="fileId"
+          maxlength="100"
           v-model="fileId"
           placeholder="id file"
           required
-        ></b-form-input>
+        />
         <b-form-datalist
           id="fileId-list"
           :options="fileOptions"
