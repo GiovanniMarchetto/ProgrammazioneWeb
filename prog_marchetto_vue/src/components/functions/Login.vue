@@ -43,6 +43,7 @@ export default {
           password: this.password,
         })
         .then((res) => {
+          // https://stackoverflow.com/a/44534672
           localStorage.setItem("jwtToken", res.data);
           localStorage.setItem("nomeUtente", this.username);
           this.$emit("login", "Login eseguito - " + this.username);
