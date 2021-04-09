@@ -55,8 +55,7 @@ public class LoginManager {
 
             return Response
                     .status(Response.Status.OK)
-                    .entity(JWTAssistant.creaJWT(attoreLogin.getUsername(), accountChiesto.getRole(),
-                            accountChiesto.getName(), accountChiesto.getEmail()))
+                    .entity(JWTAssistant.creaJWT(attoreLogin.getUsername(), accountChiesto.getRole()))
                     .build();
         } catch (MyException e) {
             if (FixedVariables.debug) System.out.println(e.getMessage() + "\n");

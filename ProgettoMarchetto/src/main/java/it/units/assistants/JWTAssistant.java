@@ -38,7 +38,7 @@ public class JWTAssistant {
             "IeDbLNrfiJUfalALpcwK2";
     private static final Algorithm algoritmo = Algorithm.HMAC256(secret);
 
-    public static String creaJWT(String username, String ruolo, String name, String email) throws MyException {
+    public static String creaJWT(String username, String ruolo) throws MyException {
         try {
             Date dataCorrente = new Date();
             Calendar dataScadenzaCalendar = Calendar.getInstance();
@@ -52,8 +52,6 @@ public class JWTAssistant {
                     .withIssuedAt(dataCorrente)
                     .withExpiresAt(dataScadenza)
                     .withClaim("role", ruolo)
-                    .withClaim("name", name)
-                    .withClaim("email", email)
                     .sign(algoritmo);
 
             if (FixedVariables.debug)
