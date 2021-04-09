@@ -1,9 +1,9 @@
 ProgrammazioneWeb
 ============================
 Progetto per l'esame di programmazione web.
-- [Back-end](https://github.com/GiovanniMarchetto/ProgettoMarchetto)
-- [Front-end](https://github.com/GiovanniMarchetto/prog_marchetto_vue)
-- [Rest client essenziale](https://github.com/GiovanniMarchetto/RESTClient)
+- [Back-end](https://github.com/GiovanniMarchetto/ProgettoMarchetto) --> ProgettoMarchetto
+- [Front-end](https://github.com/GiovanniMarchetto/prog_marchetto_vue) --> prog_marchetto_vue
+- [Rest client essenziale](https://github.com/GiovanniMarchetto/RESTClient) --> RESTClient
 
 
 ## Introduzione alle specifiche di progetto
