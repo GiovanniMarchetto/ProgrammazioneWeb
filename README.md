@@ -1,6 +1,6 @@
-ProgrammazioneWeb
+Progetto per l'esame di programmazione web
 ============================
-Progetto per l'esame di programmazione web.
+Questa repository racchiude l'intero progetto per l'esame di programmazione web che, tuttavia, inizialmente era divisa in tre repository distinte. Qui in seguito indichiamo i link relativi alle diverse parti con un'indicazione alla rispettiva cartella di destinazione nel presente progetto.
 - [Back-end](https://github.com/GiovanniMarchetto/ProgettoMarchetto) --> ProgettoMarchetto
 - [Front-end](https://github.com/GiovanniMarchetto/prog_marchetto_vue) --> prog_marchetto_vue
 - [Rest client essenziale](https://github.com/GiovanniMarchetto/RESTClient) --> RESTClient
