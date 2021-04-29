@@ -32,10 +32,9 @@ import Logo from "@/components/input/Logo";
 import { formUtente } from "@/utils/utils";
 
 import axios from "axios";
-if (localStorage.getItem("jwtToken") != null)
-  axios.defaults.headers["Authorization"] = `Bearer ${localStorage.getItem(
-    "jwtToken"
-  )}`;
+axios.defaults.headers["Authorization"] = `Bearer ${localStorage.getItem(
+  "jwtToken"
+)}`;
 
 export default {
   name: "Registration",
