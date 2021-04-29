@@ -46,10 +46,9 @@ import FileInput from "../input/FileInput";
 import UserInfo from "../input/UserInfo";
 
 import axios from "axios";
-if (localStorage.getItem("jwtToken") != null)
-  axios.defaults.headers["Authorization"] = `Bearer ${localStorage.getItem(
-    "jwtToken"
-  )}`;
+axios.defaults.headers["Authorization"] = `Bearer ${localStorage.getItem(
+  "jwtToken"
+)}`;
 
 export default {
   name: "Upload",
